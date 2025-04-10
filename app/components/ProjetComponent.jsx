@@ -50,6 +50,7 @@ function ListeProjets({ projets }) {
   let index = 0;
   return (
     <div className="grid gap-6">
+      {console.log('projets:', projets)}
       {projets.map((projet) => (
         <Projet 
           key={index++} 
@@ -93,14 +94,9 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
 function LangagesListe({ langages = {} }) {
   return (
     <div className="flex gap-2">
-      
       {Object.keys(langages).map((lang, index) => (
-        <>
-          <LangageIcon key={index} lang={lang} />
-          {console.log(<LangageIcon key={index} lang={lang} />)}
-        </>
+        <LangageIcon key={index} lang={lang} />
       ))}
-      
     </div>
   );
 }
@@ -109,7 +105,7 @@ function LangagesListe({ langages = {} }) {
 function LangageIcon({ lang }) {
   const [imgError, setImgError] = useState(false);
   const lien = imgError ? "unknown" : lang;
-  console.log(lien);
+
   return (
     <Image
       key={lien} // <-- important !
