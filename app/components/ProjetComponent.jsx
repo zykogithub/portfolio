@@ -105,16 +105,11 @@ function LangagesListe({ langages = {} }) {
 
 function LangageIcon({ lang }) {
   const [imgError, setImgError] = useState(false);
-  let lien = "";
-  if (imgError) {
-    lien = "unknown";
-  }
-  else {
-    lien = lang;
-  }
+  const lien = imgError ? "unknown" : lang;
 
   return (
     <Image
+      key={lien} // <-- important !
       src={`/langages/${lien}.png`}
       alt={lang}
       width={24}
