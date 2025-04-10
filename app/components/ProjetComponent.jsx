@@ -53,7 +53,10 @@ function ListeProjets({ projets }) {
       {projets.map((projet) => (
         <Projet 
           key={index++} 
-          {...projet} 
+          nom={projet.nom}
+          description={projet.description}
+          lienDepot={projet.lienDepot}
+          langages={projet.langages} 
         />
       ))}
     </div>
