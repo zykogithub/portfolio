@@ -55,7 +55,7 @@ function ListeProjets({ projets }) {
           key={index++} 
           nom={projet.nom}
           description={projet.description}
-          lienDepot={projet.lienDepot}
+          lienDepot={projet.lien}
           langages={projet.langages} 
         />
       ))}
@@ -68,11 +68,11 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
     <div className="p-4 border rounded-lg shadow-sm">
       <h3 className="text-xl font-semibold mb-2">{nom}</h3>
       <p className="mb-3">{description || 'Pas de description disponible'}</p>
-      {console.log('lien', lien, 'langages:', langages)}
       <div className="flex items-center gap-4">
-        {lien && (
+      {console.log('lienDepot:', lienDepot, 'langages:', langages)}
+        {lienDepot && (
           <a 
-            href={lien} 
+            href={lienDepot} 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
