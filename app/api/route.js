@@ -24,17 +24,17 @@ async function requestGithub() {
     const data = await response.json();
 
     // Traiter les dépôts pour obtenir le nom, la description, le lien et les langages
-    const depots = await Promise.all(data.map(async (depot) => ({
+    let depots = await Promise.all(data.map(async (depot) => ({
       nom: depot.name,
       description: depot.description || "Pas de description",
       lien: depot.html_url,
       langages: await requestLangage(depot, token.trim())
     })));
-
+    depots = depots.sort((a, b) => a.nom.localeCompare(b.nom)); 
     return depots;
 
   } catch (error) {
-    throw new Error("Erreur inattendue : " + error.message);
+    console.error("Erreur inattendue : " + error.message);
   }
 }
 
@@ -57,7 +57,7 @@ async function requestLangage(depot, token) {
     return data;
 
   } catch (error) {
-    throw new Error("Erreur inattendue (langages) : " + error.message);
+    console.error("Erreur inattendue (langages) : " + error.message);
   }
 }
 

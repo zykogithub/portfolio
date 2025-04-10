@@ -97,7 +97,7 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
           </a>
         )}
         {(
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <span>Langages :</span>
 
             <LangagesListe langages={langages} />
@@ -111,10 +111,14 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
 function LangagesListe({ langages = {} }) {
   if (langages.length>0)  langages = removeQuotesFromAttributes(langages);
   return (
-    <div className="flex gap-2">
-      {Object.keys(langages).map((lang, index) => (
-        <LangageIcon key={index} lang={lang} />
-      ))}
+    <div className="flex gap-1">
+      {Object.keys(langages).length > 0 ? (
+        Object.keys(langages).map((lang, index) => (
+          <LangageIcon key={index} lang={lang} />
+        ))
+      ) : (
+        <span>Pas de langages disponibles</span>
+      )}
     </div>
   );
 }
@@ -144,7 +148,7 @@ function LangageIcon({ lang }) {
       alt={lang}
       width={24}
       height={24}
-      placeholder="les images en point d'intérogation sont les langages non trouvés"
+      title={src === "/langages/unknown.png" ? "Langage sans icône fournie" : `Icône de ${lang}`}
       className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
       onError={handleError}
     />
