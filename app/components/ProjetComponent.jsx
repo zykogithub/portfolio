@@ -50,6 +50,7 @@ function ListeProjets({ projets }) {
   let index = 0;
   return (
     <div className="grid gap-6">
+      {console.log('projets:', projets)}
       {projets.map((projet) => (
         <Projet 
           key={index++} 
