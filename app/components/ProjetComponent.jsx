@@ -79,20 +79,27 @@ function removeQuotesFromAttributes(data) {
   return cleanData;
 }
 
-function Projet({ nom, description, lienDepot, langages }) {
+
+function Projet({ nom, description, lienDepot, langages = [] }) {
   return (
-    <div className="border rounded-lg p-4 mb-4 shadow-sm">
-      <h3 className="text-xl font-bold mb-2">{nom}</h3>
-      <p className="mb-3">{description}</p>
-      
-      <div className="flex flex-wrap items-center gap-4">
-        <a href={lienDepot} className="text-blue-600 hover:underline">
-          Voir sur GitHub
-        </a>
-        
+    <div className="p-4 border rounded-lg shadow-sm">
+      <h3 className="text-xl font-semibold mb-2">{nom}</h3>
+      <p className="mb-3">{description || 'Pas de description disponible'}</p>
+      <div className="flex items-center gap-4">
+        {lienDepot && (
+          <a 
+            href={lienDepot} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Voir sur GitHub
+          </a>
+        )}
         {(
-          <div>
-            <span className="text-sm font-medium">Langages:</span>
+          <div className="flex items-center gap-2">
+            <span>Langages :</span>
+
             <LangagesListe langages={langages} />
           </div>
         )}
@@ -100,6 +107,7 @@ function Projet({ nom, description, lienDepot, langages }) {
     </div>
   );
 }
+
 
 function LangagesListe({ langages = {} }) {
   if (langages.length>0)  langages = removeQuotesFromAttributes(langages);
