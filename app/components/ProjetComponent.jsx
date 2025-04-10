@@ -102,24 +102,22 @@ function LangagesListe({ langages = [] }) {
 
 function LangageIcon({ lang }) {
   const [imgError, setImgError] = useState(false);
-
+  let lien = "";
   if (imgError) {
-    return (
-      <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-        {lang}
-      </span>
-    );
+    lien = "unknown";
+  }
+  else {
+    lien = lang.toLowerCase();
   }
 
   return (
     <Image
-      src={`/langages/${lang.toLowerCase()}.png`}
+      src={`/langages/${lien}.png`}
       alt={lang}
       width={24}
       height={24}
       className="h-6 w-6 object-contain"
-      onError={() => setImgError(true)}
-      title={lang}
+      onError={() => setImgError(true)} 
     />
   );
 }
