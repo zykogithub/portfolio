@@ -104,7 +104,7 @@ function LangagesListe({ langages = {} }) {
 
 
 
-export default function LangageIcon({ lang }) {
+function LangageIcon({ lang }) {
   const [src, setSrc] = useState(`/langages/${lang}.png`);
   const [failedOnce, setFailedOnce] = useState(false);
 
