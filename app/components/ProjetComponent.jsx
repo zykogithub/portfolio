@@ -108,7 +108,6 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
   );
 }
 
-
 function LangagesListe({ langages = {} }) {
   if (langages.length>0)  langages = removeQuotesFromAttributes(langages);
   return (
@@ -140,22 +139,15 @@ function LangageIcon({ lang }) {
   };
 
   return (
-    <div className="flex flex-wrap gap-2 p-2 bg-gray-100 rounded-lg"> {/* Conteneur avec fond et arrondi */}
-      {langages.map((lang, index) => (
-        <div key={index} className="flex items-center p-1 bg-white rounded"> {/* Boîte individuelle pour chaque langage */}
-          <Image
-            src={`/langages/${lang}.png`}
-            alt={lang}
-            width={24}
-            height={24}
-            className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
-            onError={(e) => {
-              e.target.src = '/langages/default.png';
-            }}
-          />
-          <span className="ml-1 text-xs">{lang}</span> {/* Texte du langage */}
-        </div>
-      ))}
-    </div>
+    <Image
+      src={src}
+      alt={lang}
+      width={24}
+      height={24}
+      className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
+      onError={handleError}
+    />
   );
 }
+
+
