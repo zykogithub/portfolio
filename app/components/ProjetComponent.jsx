@@ -68,8 +68,8 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
     <div className="p-4 border rounded-lg shadow-sm">
       <h3 className="text-xl font-semibold mb-2">{nom}</h3>
       <p className="mb-3">{description || 'Pas de description disponible'}</p>
-      <div className="flex items-center gap-4">
       {console.log('lienDepot:', lienDepot, 'langages:', langages)}
+      <div className="flex items-center gap-4">
         {lienDepot && (
           <a 
             href={lienDepot} 
