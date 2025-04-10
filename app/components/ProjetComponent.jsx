@@ -10,7 +10,7 @@ export default function ProjetComponent() {
   useEffect(() => {
     const fetchDepots = async () => {
       try {
-        const response = await fetch('/api/github');
+        const response = await fetch('/api');
         if (!response.ok) {
           throw new Error('Erreur réseau');
         }
@@ -69,6 +69,7 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
       <h3 className="text-xl font-semibold mb-2">{nom}</h3>
       <p className="mb-3">{description || 'Pas de description disponible'}</p>
       <div className="flex items-center gap-4">
+      {console.log('lienDepot:', lienDepot, 'langages:', langages)}
         {lienDepot && (
           <a 
             href={lienDepot} 
