@@ -50,7 +50,6 @@ function ListeProjets({ projets }) {
   let index = 0;
   return (
     <div className="grid gap-6">
-      {console.log('projets:', projets)}
       {projets.map((projet) => (
         <Projet 
           key={index++} 
@@ -70,7 +69,6 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
       <h3 className="text-xl font-semibold mb-2">{nom}</h3>
       <p className="mb-3">{description || 'Pas de description disponible'}</p>
       <div className="flex items-center gap-4">
-      {console.log('lienDepot:', lienDepot, 'langages:', langages)}
         {lienDepot && (
           <a 
             href={lienDepot} 
@@ -95,9 +93,14 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
 function LangagesListe({ langages = {} }) {
   return (
     <div className="flex gap-2">
+      
       {Object.keys(langages).map((lang, index) => (
-        <LangageIcon key={index} lang={lang} />
+        <>
+          <LangageIcon key={index} lang={lang} />
+          {console.log(<LangageIcon key={index} lang={lang} />)}
+        </>
       ))}
+      
     </div>
   );
 }
@@ -106,7 +109,7 @@ function LangagesListe({ langages = {} }) {
 function LangageIcon({ lang }) {
   const [imgError, setImgError] = useState(false);
   const lien = imgError ? "unknown" : lang;
-
+  console.log(lien);
   return (
     <Image
       key={lien} // <-- important !
