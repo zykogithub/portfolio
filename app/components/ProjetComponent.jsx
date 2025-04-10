@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+
 export default function ProjetComponent() {
   const [depots, setDepots] = useState([]);
   const [error, setError] = useState(null);
@@ -102,19 +103,33 @@ function LangagesListe({ langages = {} }) {
 }
 
 
-function LangageIcon({ lang }) {
-  const [imgError, setImgError] = useState(false);
-  const lien = imgError ? "unknown" : lang;
+
+export default function LangageIcon({ lang }) {
+  const [src, setSrc] = useState(`/langages/${lang}.png`);
+  const [failedOnce, setFailedOnce] = useState(false);
+
+  useEffect(() => {
+    // à chaque fois que le `lang` change, on reset le state
+    setSrc(`/langages/${lang}.png`);
+    setFailedOnce(false);
+  }, [lang]);
+
+  const handleError = () => {
+    if (!failedOnce) {
+      setSrc("/langages/unknown.png");
+      setFailedOnce(true);
+    }
+  };
 
   return (
     <Image
-      key={lien} // <-- important !
-      src={`/langages/${lien}.png`}
+      src={src}
       alt={lang}
       width={24}
       height={24}
-      className="h-6 w-6 object-contain"
-      onError={() => setImgError(true)} 
+      className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
+      onError={handleError}
     />
   );
 }
+
