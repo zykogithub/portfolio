@@ -81,7 +81,7 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
             Voir sur GitHub
           </a>
         )}
-        {langages.length > 0 && (
+        {(
           <div className="flex items-center gap-2">
             <span>Langages :</span>
             <LangagesListe langages={langages} />
