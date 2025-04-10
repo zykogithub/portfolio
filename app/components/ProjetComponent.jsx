@@ -47,11 +47,12 @@ export default function ProjetComponent() {
 }
 
 function ListeProjets({ projets }) {
+  let index = 0;
   return (
     <div className="grid gap-6">
       {projets.map((projet) => (
         <Projet 
-          key={projet.id || projet.nom} 
+          key={index++} 
           {...projet} 
         />
       ))}

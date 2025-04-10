@@ -9,7 +9,7 @@ async function requestGithub() {
   try {
     let token = "";
     try {
-      token = await fs.readFile('token.txt', 'utf-8');
+      token = await fs.readFile('./token.txt', 'utf-8');
     } catch (error) {
       token = process.env.GITHUB_TOKEN; 
     }
