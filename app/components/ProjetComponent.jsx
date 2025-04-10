@@ -64,6 +64,21 @@ function ListeProjets({ projets }) {
     </div>
   );
 }
+function removeQuotesFromAttributes(data) {
+  const cleanData = {};
+
+  for (const key in data) {
+    if (typeof data[key] === "string") {
+      // On remplace les guillemets dans les chaînes de caractères
+      cleanData[key] = data[key].replace(/"/g, ""); // Enlève tous les guillemets
+    } else {
+      cleanData[key] = data[key]; // Si ce n'est pas une chaîne de caractères, on laisse tel quel
+    }
+  }
+
+  return cleanData;
+}
+
 
 function Projet({ nom, description, lienDepot, langages = [] }) {
   return (
@@ -84,6 +99,7 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
         {(
           <div className="flex items-center gap-2">
             <span>Langages :</span>
+
             <LangagesListe langages={langages} />
           </div>
         )}
@@ -93,6 +109,7 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
 }
 
 function LangagesListe({ langages = {} }) {
+  if (langages.length>0)  langages = removeQuotesFromAttributes(langages);
   return (
     <div className="flex gap-2">
       {Object.keys(langages).map((lang, index) => (
