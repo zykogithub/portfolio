@@ -13,7 +13,7 @@ export default function Home() {
             key="1"
             title="Quels projets ?"
             image="/project.png"
-            texte="Ici vous trouverez mes projets publics pu poster sur mon github."
+            texte="Ici vous trouverez mes projets github auquel j'ai participé. Je vous invite à les consulter et à me faire part de vos retours !"
             direction="right"
         />
         <ProjectComponent/>

@@ -144,6 +144,7 @@ function LangageIcon({ lang }) {
       alt={lang}
       width={24}
       height={24}
+      placeholder="les images en point d'intérogation sont les langages non trouvés"
       className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
       onError={handleError}
     />
