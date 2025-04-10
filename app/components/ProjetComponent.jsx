@@ -143,7 +143,7 @@ function LangageIcon({ lang }) {
   };
 
   return (
-    <Image
+    <img
       src={src}
       alt={lang}
       width={24}
