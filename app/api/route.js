@@ -7,7 +7,10 @@ import * as fs from 'node:fs/promises';
  */
 async function requestGithub() {
   try {
-    let token = process.env.GITHUB_TOKEN; 
+    let token = process.env.GITHUB_TOKEN;
+    if (!token) {
+      console.error("Token GitHub introuvable dans les variables d'environnement.");
+    } 
     const url = `https://api.github.com/user/repos?visibility=all`;
     const response = await fetch(url, {
       headers: {
