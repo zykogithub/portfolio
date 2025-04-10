@@ -189,3 +189,15 @@ nav {
     height: auto;
     border-radius: 4px;
 }
+/* Dans votre globals.css */
+.langage-container {
+  @apply flex flex-wrap gap-2 p-2 bg-gray-100 rounded-lg;
+}
+
+.langage-item {
+  @apply flex items-center p-1 bg-white rounded shadow-sm;
+}
+
+.langage-img {
+  @apply object-contain h-6 w-6;
+}

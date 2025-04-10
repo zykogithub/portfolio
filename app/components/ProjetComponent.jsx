@@ -80,27 +80,21 @@ function removeQuotesFromAttributes(data) {
 }
 
 
-function Projet({ nom, description, lienDepot, langages = [] }) {
+function Projet({ nom, description, lienDepot, langages }) {
   return (
-    <div className="p-4 border rounded-lg shadow-sm">
-      <h3 className="text-xl font-semibold mb-2">{nom}</h3>
-      <p className="mb-3">{description || 'Pas de description disponible'}</p>
-      <div className="flex items-center gap-4">
-        {lienDepot && (
-          <a 
-            href={lienDepot} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            Voir sur GitHub
-          </a>
-        )}
-        {(
-          <div className="flex items-center gap-2">
-            <span>Langages :</span>
-
-            <LangagesListe langages={langages} />
+    <div className="border rounded-lg p-4 mb-4 shadow-sm">
+      <h3 className="text-xl font-bold mb-2">{nom}</h3>
+      <p className="mb-3">{description}</p>
+      
+      <div className="flex flex-wrap items-center gap-4">
+        <a href={lienDepot} className="text-blue-600 hover:underline">
+          Voir sur GitHub
+        </a>
+        
+        {langages && langages.length > 0 && (
+          <div className="langage-container">
+            <span className="text-sm font-medium">Langages:</span>
+            <Langage langages={langages} />
           </div>
         )}
       </div>
@@ -139,14 +133,22 @@ function LangageIcon({ lang }) {
   };
 
   return (
-    <Image
-      src={src}
-      alt={lang}
-      width={24}
-      height={24}
-      className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
-      onError={handleError}
-    />
+    <div className="flex flex-wrap gap-2 p-2 bg-gray-100 rounded-lg"> {/* Conteneur avec fond et arrondi */}
+      {langages.map((lang, index) => (
+        <div key={index} className="flex items-center p-1 bg-white rounded"> {/* Boîte individuelle pour chaque langage */}
+          <Image
+            src={`/langages/${lang}.png`}
+            alt={lang}
+            width={24}
+            height={24}
+            className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
+            onError={(e) => {
+              e.target.src = '/langages/default.png';
+            }}
+          />
+          <span className="ml-1 text-xs">{lang}</span> {/* Texte du langage */}
+        </div>
+      ))}
+    </div>
   );
 }
-
