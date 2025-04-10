@@ -24,8 +24,8 @@ export default function IntroComponent({
         src={image} 
         alt={""} 
         className="w-full max-w-md rounded-lg shadow-md object-cover"
-        width={500}
-        height={500}
+        width={1000}
+        height={1000}
         />
       </div>
     </div>
