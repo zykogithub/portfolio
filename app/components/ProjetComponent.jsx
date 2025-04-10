@@ -122,15 +122,14 @@ function LangageIcon({ lang }) {
   };
 
   return (
-    <img
+    <Image
       src={src}
       alt={lang}
       width={24}
       height={24}
-      className="h-6 w-6 object-contain"
+      className="h-6 w-6 object-contain transition-opacity duration-300 ease-in-out"
       onError={handleError}
     />
-
   );
 }
 
