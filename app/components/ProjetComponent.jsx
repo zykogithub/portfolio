@@ -92,15 +92,16 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
   );
 }
 
-function LangagesListe({ langages = [] }) {
+function LangagesListe({ langages = {} }) {
   return (
     <div className="flex gap-2">
-      {langages.map((lang) => (
-        <LangageIcon key={lang} lang={lang} />
+      {Object.keys(langages).map((lang, index) => (
+        <LangageIcon key={index} lang={lang} />
       ))}
     </div>
   );
 }
+
 
 function LangageIcon({ lang }) {
   const [imgError, setImgError] = useState(false);
@@ -109,7 +110,7 @@ function LangageIcon({ lang }) {
     lien = "unknown";
   }
   else {
-    lien = lang.toLowerCase();
+    lien = lang;
   }
 
   return (
