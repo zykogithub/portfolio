@@ -94,7 +94,7 @@ function Projet({ nom, description, lienDepot, langages }) {
         {langages && langages.length > 0 && (
           <div className="langage-container">
             <span className="text-sm font-medium">Langages:</span>
-            <Langage langages={langages} />
+            <LangagesListe langages={langages} />
           </div>
         )}
       </div>
