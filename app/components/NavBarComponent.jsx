@@ -8,10 +8,10 @@ export default function NavBarComponent() {
   const pathName = usePathname();
   // petite fonction utilitaire
   const getLinkStyleText = (href) => {
-    return pathName === href ? 'text-[#8B4513]' : '';
+    return pathName === href ? 'text-[#01ffe7]' : '';
   };
   const getLinkStyleImage = (href) => {
-    return pathName === href ? 'border border-[3px] border-[#8B4513] rounded-md' : '';
+    return pathName === href ? 'border border-[3px] border-[#01ffe7] rounded-md' : '';
 
   };
   
