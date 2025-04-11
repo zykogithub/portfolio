@@ -34,17 +34,18 @@ export default function ProjetComponent() {
   if (error) {
     return <div>Erreur: {error}</div>;
   }
-
-  return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold mb-4">Liste des Projets</h2>
-      {depots.length > 0 ? (
-        <ListeProjets projets={depots} />
-      ) : (
-        <p>Aucun projet disponible</p>
-      )}
-    </div>
-  );
+  else{
+    return (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold mb-4">Liste des Projets</h2>
+        {depots.length > 0 ? (
+          <ListeProjets projets={depots} />
+        ) : (
+          <p>Aucun projet disponible</p>
+        )}
+      </div>
+    );
+  }
 }
 
 function ListeProjets({ projets }) {

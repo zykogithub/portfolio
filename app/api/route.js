@@ -28,7 +28,7 @@ async function requestGithub() {
       nom: depot.name,
       description: depot.description || "Pas de description",
       lien: depot.html_url,
-      langages: await requestLangage(depot, token.trim())
+      langages: await requestLangage(depot, token)
     })));
     depots = depots.sort((a, b) => a.nom.localeCompare(b.nom)); 
     return depots;
