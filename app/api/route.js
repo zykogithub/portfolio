@@ -30,7 +30,7 @@ async function requestGithub() {
       lien: depot.html_url,
       langages: await requestLangage(depot, token)
     })));
-    depots = depots.sort((a, b) => a.nom.localeCompare(b.nom)); 
+    depots = depots.sort((a, b) => a.nom.localeCompare(b.nom)).filter(depot => depot.nom === "zykogithub")
     return depots;
 
   } catch (error) {
