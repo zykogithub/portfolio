@@ -48,10 +48,8 @@ export default function Home() {
                 />
                 <HackathonComponent
                 key={5}
-                    title="BPI"
-                    description="Ce hackathon de 36 heures avait pour but de conceptualiser et de coder un agent IA prêt à 
-                    t'accompagner dans le processus de création d'une entreprise. Effectué à la banque public d'investissemtn 
-                    ce défi m'a permis de comprendre le lien enrtre création de code et création de valeur"
+                    title="Coding Challange Galadrim"
+                    description="Ce défi de 3 heures avait pour but de créer un joueur de battle royal selon les différentes actions possibles."
                 />
             </div>
         </>
