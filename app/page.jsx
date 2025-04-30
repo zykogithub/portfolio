@@ -28,7 +28,7 @@ export default function Home() {
           texte="Durant ma formation au BUT, je me suis spécialisé dans le 
           développement bureau en Java, en web avec html/CSS/js/
           PHP , en algoritmie C/C++. Egalement, dans ma vie 
-          personnel, j'ai pu développer mes compétences en IA avec 
+          personnelle, j'ai pu développer mes compétences en IA avec 
           python et développement android avec Kotline"
           direction="left"
         />

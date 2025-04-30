@@ -76,7 +76,7 @@ function removeQuotesFromAttributes(data) {
       cleanData[key] = data[key]; // Si ce n'est pas une chaîne de caractères, on laisse tel quel
     }
   }
-
+  
   return cleanData;
 }
 
@@ -111,6 +111,8 @@ function Projet({ nom, description, lienDepot, langages = [] }) {
 
 function LangagesListe({ langages = {} }) {
   if (langages.length>0)  langages = removeQuotesFromAttributes(langages);
+  console.log("langages:", langages);
+  
   return (
     <div className="flex gap-1">
       {Object.keys(langages).length > 0 ? (
@@ -132,10 +134,16 @@ function LangageIcon({ lang }) {
 
   useEffect(() => {
     // à chaque fois que le `lang` change, on reset le state
-    setSrc(`/langages/${lang}.png`);
-    setFailedOnce(false);
+    if (lang === "C#") {
+      setSrc(`/langages/CSHARP.png`);
+      
+    }
+    else{
+      setSrc(`/langages/${lang}.png`);
+      setFailedOnce(false);
+    }
   }, [lang]);
-
+  
   const handleError = () => {
     if (!failedOnce) {
       setSrc("/langages/unknown.png");
