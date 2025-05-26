@@ -19,8 +19,10 @@ async function requestGithub() {
       }
     });
 
-    if (!response.ok) throw new Error("Erreur lors de la récupération des dépôts");
-
+    if (!response.ok) {
+      if (response.status === 401) throw new Error("Token GitHub invalide ou expiré.",{ status: response.status });
+      else throw new Error(`Erreur lors de la récupération des dépôts : ${response.statusText}`,  { status: response.status });
+    }
     const data = await response.json();
 
     // Traiter les dépôts pour obtenir le nom, la description, le lien et les langages
@@ -69,6 +71,6 @@ export async function GET() {
     const depots = await requestGithub();
     return NextResponse.json(depots);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: error.status || 500 });
   }
 }

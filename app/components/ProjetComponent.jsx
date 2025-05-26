@@ -12,9 +12,9 @@ export default function ProjetComponent() {
     const fetchDepots = async () => {
       try {
         const response = await fetch('/api');
-        if (!response.ok) {
-          throw new Error('Erreur réseau');
-        }
+        if (!response.ok) 
+          if(response.status === 401 ) throw new Error(`Indisponibilité temporaire des projets, veuillez revenir plus tard`, { status: response.status });
+          else throw new Error(`Erreur lors de la récupération des dépôts : ${response.statusText}`, { status: response.status });
         const data = await response.json();
         setDepots(data);
       } catch (err) {
