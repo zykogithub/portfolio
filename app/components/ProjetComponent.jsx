@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import  Loader from './loadingComponent';
 import Image from 'next/image';
 
 
@@ -12,9 +13,9 @@ export default function ProjetComponent() {
     const fetchDepots = async () => {
       try {
         const response = await fetch('/api');
-        if (!response.ok) {
-          throw new Error('Erreur réseau');
-        }
+        if (!response.ok) 
+          if(response.status === 401 ) throw new Error(`Indisponibilité temporaire des projets, veuillez revenir plus tard`, { status: response.status });
+          else throw new Error(`Erreur lors de la récupération des dépôts : ${response.statusText}`, { status: response.status });
         const data = await response.json();
         setDepots(data);
       } catch (err) {
@@ -28,7 +29,7 @@ export default function ProjetComponent() {
   }, []);
 
   if (loading) {
-    return <div>Chargement des projets...</div>;
+    return <Loader />;
   }
 
   if (error) {
