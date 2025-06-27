@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import  Loader from './loadingComponent';
 import Image from 'next/image';
 
 
@@ -28,7 +29,7 @@ export default function ProjetComponent() {
   }, []);
 
   if (loading) {
-    return <div>Chargement des projets...</div>;
+    return <Loader />;
   }
 
   if (error) {
