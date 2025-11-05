@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "debug": "set NODE_OPTIONS=--inspect && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
