@@ -17,7 +17,7 @@ export default function Contact() {
             title="Instagram"
             texte="zykocorp"
             image="/instagram.png"
-            direction="left"
+            direction="right"
             noPadding={false}
           />
           <IntroComponent
@@ -25,8 +25,17 @@ export default function Contact() {
             title="LinkedIn"
             texte="Naherry Darouèche"
             image="/linkedin.png"
+            direction="left"
+            noPadding={false}
+          />
+          <IntroComponent
+            key={3}
+            title="CV"
+            texte="Mon CV"
+            image="/CV.jpeg"
             direction="right"
             noPadding={false}
+            elementOuvrir="/Naherry_DAROUECHE-banque-de-france-python-java.pdf"
           />
         </div>
       </div>
