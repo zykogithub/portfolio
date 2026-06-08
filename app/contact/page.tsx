@@ -35,7 +35,7 @@ export default function Contact() {
             image="/CV.png"
             direction="right"
             noPadding={false}
-            elementOuvrir="/Naherry_DAROUECHE-banque-de-france-python-java.pdf"
+            elementOuvrir="/CV.pdf"
           />
         </div>
       </div>
