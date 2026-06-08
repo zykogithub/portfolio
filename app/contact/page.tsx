@@ -5,7 +5,7 @@ import NavBarComponent from "../components/NavBarComponent";
 export default function Contact() {
   return (
     <>
-    <NavBarComponent key={0} className="bg-[var(--foreground)] min-h-screen"/>
+    <NavBarComponent key={0} className="bg-[var(--foreground)]"/>
         <div className="bg-[var(--background)] min-h-screen">
       
       <div className="page-container">
@@ -32,7 +32,7 @@ export default function Contact() {
             key={3}
             title="CV"
             texte="Mon CV"
-            image="/CV.jpeg"
+            image="/CV.png"
             direction="right"
             noPadding={false}
             elementOuvrir="/Naherry_DAROUECHE-banque-de-france-python-java.pdf"

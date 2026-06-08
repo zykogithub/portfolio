@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/projet/page.jsx",
+    "app/projet/page.tsx",
     "app/page.tsx",
     "app/hackathon/page.tsx",
     "app/hackathon/page.tsx",

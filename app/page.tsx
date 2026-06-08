@@ -5,7 +5,7 @@ import IntroComponent from "./components/IntroductionComponent";
 export default function Home() {
   return (
     <>
-    <NavBarComponent className="bg-[var(--foreground)] min-h-screen"/>
+    <NavBarComponent className="bg-[var(--foreground)]"/>
     <div className="bg-[var(--background)] min-h-screen">
       
       <div className="page-container">

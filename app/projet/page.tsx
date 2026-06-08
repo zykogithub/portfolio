@@ -6,7 +6,7 @@ import ProjectComponent from '../components/ProjetComponent'
 export default function Home() {
     return (
         <>
-        <NavBarComponent key={0} className="bg-[var(--foreground)] min-h-screen"/>
+        <NavBarComponent key={0} className="bg-[var(--foreground)]"/>
         <div className="bg-[var(--background)] min-h-screen">
         <h1>Projets</h1>
         <IntroComponent
