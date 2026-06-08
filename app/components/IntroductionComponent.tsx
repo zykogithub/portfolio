@@ -2,13 +2,21 @@
 
 import Image from 'next/image';
 
+interface IntroProp {
+  title : string | '',
+  image : string,
+  texte : string,
+  direction : 'left' | 'right',
+  noPadding : boolean
+}
+
 export default function IntroComponent({ 
   title = '', 
   image, 
   texte, 
   direction = 'left',
   noPadding = false 
-}) {
+} : IntroProp) {
   return (
     <div className={`flex flex-col ${direction === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'} ${noPadding ? '' : 'mb-8'} gap-8 items-center`}>
       {/* Contenu texte */}

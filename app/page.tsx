@@ -19,6 +19,7 @@ export default function Home() {
           suis en 2eme année de BUT informatique à l'IUT d'Orsay de 
           l'universté Paris-Saclay."
           direction="right"
+          noPadding={false}
         />
 
         <IntroComponent
@@ -31,6 +32,7 @@ export default function Home() {
           personnelle, j'ai pu développer mes compétences en IA avec 
           python et développement android avec Kotline"
           direction="left"
+          noPadding={false}
         />
       </div>
     </div>

@@ -22,6 +22,17 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/projet/page.jsx", "app/page.jsx", "app/hackathon/page.jsx", "app/hackathon/page.jsx", "app/components/NavBarComponent.jsx", "app/contact/page.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/projet/page.jsx",
+    "app/page.tsx",
+    "app/hackathon/page.tsx",
+    "app/hackathon/page.tsx",
+    "app/components/NavBarComponent.tsx",
+    "app/contact/page.tsx"
+  ],
   "exclude": ["node_modules"]
 }

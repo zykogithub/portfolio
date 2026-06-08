@@ -17,12 +17,16 @@ export default function Contact() {
             title="Instagram"
             texte="zykocorp"
             image="/instagram.png"
+            direction="left"
+            noPadding={false}
           />
           <IntroComponent
             key={2}
             title="LinkedIn"
             texte="Naherry Darouèche"
             image="/linkedin.png"
+            direction="right"
+            noPadding={false}
           />
         </div>
       </div>
