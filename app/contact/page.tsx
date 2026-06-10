@@ -31,7 +31,7 @@ export default function Contact() {
               key={3}
               title="CV"
               texte="Mon CV"
-              image="/CV.png"
+              image="/cv.png"
               direction="right"
               noPadding={false}
               elementOuvrir="/CV.pdf"
