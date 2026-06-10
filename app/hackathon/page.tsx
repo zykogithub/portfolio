@@ -6,7 +6,7 @@ import HackathonComponent from '../components/HackathonComponent';
 export default function Home() {
     return(
         <>
-            <NavBarComponent key={0} className="bg-[var(--foreground)] min-h-screen"/>
+            <NavBarComponent key={0} className="bg-[var(--foreground)]"/>
             <div className="bg-[var(--background)] min-h-screen">
                 <h1>Hackathon</h1>
                 <IntroComponent
@@ -20,7 +20,7 @@ export default function Home() {
                 />
                 <HackathonComponent
                 key={8}
-                
+                    link=''
                     title="BPI"
                     description="Ce hackathon de 36 heures avait pour but de conceptualiser et de coder un agent IA prêt à 
                     t'accompagner dans le processus de création d'une entreprise. Effectué à la banque public d'investissemtn 
@@ -28,28 +28,39 @@ export default function Home() {
                 />
                 <HackathonComponent
                 key={7}
+                link=''
                     title="nuit du code 2024"
                     description="Ce défi informatique de 6h consiste à créer un jeu vidéo en python à partir du thème imposé, composant et framework imposé."
                 />
                 <HackathonComponent
+                link=''
                 key={2}
                     title="automathon 2024"
                     description="Ce hackathon de 24 heures avait pour but de créer une IA détectric de deep fake"
                 />
                 <HackathonComponent
                 key={3}
+                link=''
                     title="From LLM to agentic AI"
                     description="Ce hackathon de 36 heures avait pour but de de créer une application composé d'un agent IA prêt parmis un thème imposé. Mon groupe avait choisi le thème de servir les clients"
                 />
                 <HackathonComponent
                 key={54}
+                link=''
                     title="Coding Jam 2024"
                     description="Ce hackathon de 36 heures avait pour but de créer un jeu vidéo à partir d'un thème imposé."
                 />
                 <HackathonComponent
                 key={5}
+                link=''
                     title="Coding Challange Galadrim"
                     description="Ce défi de 3 heures avait pour but de créer un joueur de battle royal selon les différentes actions possibles."
+                />
+                <HackathonComponent
+                key={6}
+                link=''
+                    title="Chiliz Hackathon"
+                    description="Ce hackathon avait pour but de créer une solution qui exploite la cryptomonnaie Chiliz avec une application dans le monde du sport"
                 />
             </div>
         </>

@@ -1,13 +1,14 @@
 // app/api/github/route.js
 import { NextResponse } from 'next/server';
-import * as fs from 'node:fs/promises';
+import Depot from '../types/Depot';
 
 /**
  * Fonction pour récupérer les dépôts GitHub.
  */
+
 async function requestGithub() {
   try {
-    let token = process.env.GITHUB_TOKEN;
+    let token = process.env.GITHUB_TOKEN!;
     if (!token) {
       console.error("Token GitHub introuvable dans les variables d'environnement.");
     } 
@@ -20,13 +21,13 @@ async function requestGithub() {
     });
 
     if (!response.ok) {
-      if (response.status === 401) throw new Error("Token GitHub invalide ou expiré.",{ status: response.status });
-      else throw new Error(`Erreur lors de la récupération des dépôts : ${response.statusText}`,  { status: response.status });
+      if (response.status === 401) throw new Error("Token GitHub invalide ou expiré.",{ cause: response.status });
+      else throw new Error(`Erreur lors de la récupération des dépôts : ${response.statusText}`,  { cause: response.status });
     }
     const data = await response.json();
 
     // Traiter les dépôts pour obtenir le nom, la description, le lien et les langages
-    let depots = await Promise.all(data.map(async (depot) => ({
+    let depots = await Promise.all(data.map(async (depot : Depot) => ({
       nom: depot.name,
       description: depot.description || "Pas de description",
       lien: depot.html_url,
@@ -36,14 +37,14 @@ async function requestGithub() {
     return depots;
 
   } catch (error) {
-    console.error("Erreur inattendue : " + error.message);
+    console.error("Erreur inattendue : " + error);
   }
 }
 
 /**
  * Fonction pour récupérer les langages d'un dépôt GitHub.
  */
-async function requestLangage(depot, token) {
+async function requestLangage(depot : Depot, token : string) {
   try {
     const url = `https://api.github.com/repos/${depot.owner.login}/${depot.name}/languages`;
     const response = !depot.private ? await fetch(url) : await fetch(url, {
@@ -59,7 +60,7 @@ async function requestLangage(depot, token) {
     return data;
 
   } catch (error) {
-    console.error("Erreur inattendue (langages) : " + error.message);
+    console.error("Erreur inattendue (langages) : " + error);
   }
 }
 
@@ -71,6 +72,6 @@ export async function GET() {
     const depots = await requestGithub();
     return NextResponse.json(depots);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: error.status || 500 });
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }
