@@ -3,6 +3,7 @@ import NavBarComponent from "./components/NavBarComponent";
 import IntroComponent from "./components/IntroductionComponent";
 
 export default function Home() {
+  const age = new Date().getFullYear() - new Date(2005,1,7,12,10,0,0).getFullYear();
   return (
     <>
     <NavBarComponent className="bg-[var(--foreground)]"/>
@@ -15,9 +16,9 @@ export default function Home() {
           key="1"
           title="Qui suis-je ?"
           image="/me.jpg"
-          texte="Bonjour, je m'appelle Naherry et j'ai 20 ans. Actuellement je 
-          suis en 2eme année de BUT informatique à l'IUT d'Orsay de 
-          l'universté Paris-Saclay."
+          texte={`Bonjour, je m'appelle Naherry et j'ai ${age} ans. Actuellement je 
+          suis en 3eme année de BUT informatique à l'IUT d'Orsay de 
+          l'universté Paris-Saclay.`}
           direction="right"
           noPadding={false}
         />
